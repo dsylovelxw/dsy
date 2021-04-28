@@ -21,72 +21,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body class="childrenBody">
 <form class="layui-form layui-form-pane" action="Javascript:void(0)">
   <div class="layui-form-item">
-    <label class="layui-form-label">登录名</label>
+    <label class="layui-form-label">部门名</label>
     <div class="layui-input-inline">
       <input type="text" name="uname" id="uname" lay-verify="required" placeholder="请输入登录名" autocomplete="off" class="layui-input">
     </div>
   </div>
   
   <div class="layui-form-item">
-    <label class="layui-form-label">密码</label>
+    <label class="layui-form-label">部门人数</label>
     <div class="layui-input-inline">
-      <input type="text" name="password" id="password" placeholder="默认密码123456"  value="123456" autocomplete="off" class="layui-input">
+      <input type="text" name="shu" id="shu" autocomplete="off" class="layui-input">
     </div>
   </div>
   
    <div class="layui-form-item">
-    <label class="layui-form-label">用户名</label>
+    <label class="layui-form-label">人员id</label>
     <div class="layui-input-inline">
-      <input type="text" name="realName" id="realName" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+      <input type="text" name="userid" id="userid" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
     </div>
-  </div>
-  
-  <div class="layui-form-item" pane="">
-    <label class="layui-form-label">性别</label>
-    <div class="layui-input-block">
-      <input type="radio" name="sex" value="1" title="男" checked="">
-      <input type="radio" name="sex" value="2" title="女">
-    </div>
-  </div>
-  
- 
-  
-  <div class="layui-form-item">
-    <label class="layui-form-label">手机号</label>
-    <div class="layui-input-inline">
-      <input type="text" name="phone" id="phone" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
-    </div>
-  </div>
-  <div class="layui-form-item">
-    <label class="layui-form-label">年龄</label>
-    <div class="layui-input-inline">
-      <input type="text" name="age" id="age" lay-verify="required" placeholder="请输入年龄" autocomplete="off" class="layui-input">
-    </div>
-  </div>
-  
-  <div class="layui-form-item">
-    <label class="layui-form-label">角色</label>
-    <div class="layui-input-inline">
-      <select name="role1" id="role1" lay-filter="role1">
-      	
-      </select>
-   </div>
-  </div>
-    <div class="layui-form-item">
-    <label class="layui-form-label">部门</label>
-    <div class="layui-input-inline">
-      <select name="bumeng" id="bumeng" lay-filter="bumeng">
-      	
-      </select>
-   </div>
-  </div>
-    <div class="layui-form-item">
-    <label class="layui-form-label">职称</label>
-    <div class="layui-input-inline">
-      <select name="zhicheng" id="zhicheng" lay-filter="zhicheng">
-      	
-      </select>
-   </div>
   </div>
   
   <div class="layui-form-item">
@@ -95,6 +47,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </form>
 <script type="text/javascript" src="<%=basePath %>/layui-v2.5.5/layui.js"></script>
 <script type="text/javascript" src="<%=basePath %>/jquery-3.4.1/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="<%=basePath %>/js/yonghu/userAdd.js"></script>
+<script type="text/javascript" src="<%=basePath %>/js/bumen/userAdd.js"></script>
 </body>
 </html>

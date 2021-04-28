@@ -61,7 +61,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
   function checkUname(uname){
 	  var is = false;
 	  $.ajax({
-		  url:"/EMentTet/UserSerlvet?action=isUname",
+		  url:"/EMentTet/bumen?action=addbumrn",
 		  data:{"uname":uname},
 		  async:false,
 		  type:"post",
@@ -91,26 +91,12 @@ layui.use(['form', 'layedit', 'laydate'], function(){
   
   $("#tijiao").click(function(){
 	  var name = $("#uname").val();
-	  var pass = $("#password").val();
-	  var realName = $("#realName").val();
-	  var sex = $("input[type='radio']:checked").val();
-	 
-	  var phone = $("#phone").val();
-	  var role = $("select[name='role1']").val();
-	  var age=$("#age").val();
-	  var bumeng_id = $("select[name='bumeng']").val();
-	  var zhicheng_id = $("select[name='zhicheng']").val();
+	  var shu = $("#shu").val();
+	  var userid = $("#userid").val();
 	  var data = {
 			  "name":name,
-			  "pass":pass,
-			  "realName":realName,
-			  "sex":sex,
-			 
-			  "phone":phone,
-			  "role":role,
-			  "age":age,
-			  "zhicheng_id":zhicheng_id,
-			  "bumeng_id":bumeng_id
+			  "shu":shu,
+			  "userid":userid
 			  
 	  }
 	  if(name.length<3){
