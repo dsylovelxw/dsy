@@ -47,7 +47,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
   function checkUname(uname){
 	  var is = false;
 	  $.ajax({
-		  url:"/EMentTet/UserServlet?action=isUname",
+		  url:"/EMentTet/BuMenSerlvetDSY?action=isUname",
 		  data:{"uname":uname},
 		  async:false,
 		  type:"post",
@@ -70,50 +70,29 @@ layui.use(['form', 'layedit', 'laydate'], function(){
   
   
   $("#xiugai").click(function(){
-	  var uid = $("#uid").val();
+	  var uid = $("#id").val();
 	  var name = $("#uname").val();
 	  var name2 = $("#uname2").val();
-	  var pass = $("#password").val();
-	  var realName = $("#realName").val();
-	  var sex = $("input[name='st_Sex']:checked").val();
-	  
+	  var renshu = $("#renshu").val();
+	  var userid = $("#userid").val();
+	 
  
-	  
-	  
-	  var phone = $("#phone").val();
-	  var role = $("select[name='role1']").val();
-	  var age=$("#age").val();
-	  var bumeng_id = $("select[name='bumeng']").val();
-	  var zhicheng_id = $("select[name='zhicheng']").val();
+	 
 	  var data = {
-			  "uid":uid,
+			  "id":id,
 			  "name":name,
-			  "pass":pass,
-			  "realName":realName,
-			  "sex":sex,
-		 
-			  "phone":phone,
-			  "role":role,
-			 
-			  "age":age,
-			  "zhicheng_id":zhicheng_id,
-			  "bumeng_id":bumeng_id
+			  "renshu":renshu, 
+			  "userid":userid		  
 	  }
 	  if(name.length<3){
-		  layer.alert("登录名不能小于3位数")
+		  layer.alert("部门名称不能小于3位数")
 		  return false;
-	  }else if(pass.length < 5 || pass.length > 19){
-		  layer.alert('密码必须6到12位，且不能出现空格');
-		  return false;
-	  }else if(realName.length == "" || realName.length == null){
-		  layer.alert('用户名不能为空');
+	  } else if(renshu.length == "" || renshu.length == null){
+		  layer.alert('人数不能为空');
 		  return false;
 	  } 
 		  
-	  else if(phone.length != 11){
-		  layer.alert("手机格式不正确! 请重新输入");
-		  return false;
-	  }
+	  
 	 
 	 
 	  $.ajax({
