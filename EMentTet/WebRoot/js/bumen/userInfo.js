@@ -70,7 +70,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
   
   
   $("#xiugai").click(function(){
-	  var uid = $("#id").val();
+	  var id = $("#id").val();
 	  var name = $("#uname").val();
 	  var name2 = $("#uname2").val();
 	  var renshu = $("#renshu").val();
@@ -96,13 +96,13 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 	 
 	 
 	  $.ajax({
-	  		url:"/EMentTet/UserServlet?action=updateUserByAdmin",
+	  		url:"/EMentTet/BuMenSerlvetDSY?action=updateUserByAdmin",
 			data:data,
 			tyep:"post",
 			success:function(data){
 				  var info = eval("("+data+")");
 				if(data !=0){
-					layer.msg("用户信息修改成功");
+					layer.msg("部门信息修改成功");
 					setTimeout(function(){
 						layer.closeAll("iframe");
 			            //刷新父页面

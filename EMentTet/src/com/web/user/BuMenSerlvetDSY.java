@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ServiceImpl.BuMenServiceImplDSY;
+import com.entity.Lr_bumeng;
 import com.utils.PrintUtil;
 import com.web.AbstractServlet;
 
@@ -22,10 +23,26 @@ public void isUname(HttpServletRequest request,HttpServletResponse response) {
 	PrintUtil.write(cout, response);
 	
 }
-public void BuMenSerlve(HttpServletRequest request,HttpServletResponse response) {
+public void updateUserByAdmin(HttpServletRequest request,HttpServletResponse response) {
+	String name=  request.getParameter("name");
+	String id=  request.getParameter("id");
+	String renshu=  request.getParameter("renshu");
+	String userid=  request.getParameter("userid");
+	
+	Lr_bumeng bum=new Lr_bumeng();
+	bum.setId(Integer.valueOf(id));
+	bum.setMeng_name(name);
+	 bum.setRenshu_id(Integer.valueOf(renshu));
+	 bum.setUserId(Integer.valueOf(userid));
+	int cout=new BuMenServiceImplDSY().UpdateLr_bumeng(bum);
+	PrintUtil.write(cout, response);
+	
+}
+public void  hui(HttpServletRequest request,HttpServletResponse response) {
 	String uname=  request.getParameter("uname");
 	int cout=new BuMenServiceImplDSY().NameLr_bumen(uname);
 	PrintUtil.write(cout, response);
 	
 }
+
 }
