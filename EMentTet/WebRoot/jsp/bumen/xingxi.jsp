@@ -120,7 +120,7 @@
    <script src="/EMentTet/layui-v2.5.5/layui.js"></script>
   
  
-    <script src="/EMentTet/js/juese/userList.js"></script> 
+       <script src="/EMentTet/js/bumen/bumenList.js"></script> 
   
 	
  <script>
