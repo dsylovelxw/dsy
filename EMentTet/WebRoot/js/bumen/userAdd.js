@@ -78,15 +78,6 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 	  return is;
   }
   
-  $("#uname").blur(function(){
-	  var name = $("#uname").val();
-	  if(!name.length == "" || !name.length == null){
-		  var check = checkUname(name);
-		  if(check == true){
-			  layer.alert("登录账号已存在! 请重新输入")
-		  }
-	  }
-  })
   
   
   $("#tijiao").click(function(){
@@ -97,30 +88,9 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 			  "name":name,
 			  "shu":shu,
 			  "userid":userid
-			  
-	  }
-	  if(name.length<3){
-		  layer.alert("登录名不能小于3位数")
-		  return false;
-	  }else if(pass.length < 5 || pass.length > 19){
-		  layer.alert('密码必须6到12位，且不能出现空格');
-		  return false;
-	  }else if(realName.length == "" || realName.length == null){
-		  layer.alert('用户名不能为空');
-		  return false;
-	  } 
-	 else if(phone.length != 11){
-		  layer.alert("手机格式不正确! 请重新输入");
-		  return false;
-	  }else if(!name.length == "" || !name.length == null){
-		  var check = checkUname(name);
-		  if(check == true){
-			  layer.alert("登录账号已存在! 请重新输入")
-			  return false;
-		  }
 	  }
 	  $.ajax({
-	  		url:"/EMentTet/UserServlet?action=addUser",
+	  		url:"/EMentTet/bumen?action=addbumen",
 			data:data,
 			tyep:"post",
 			success:function(data){

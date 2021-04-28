@@ -331,7 +331,7 @@ layui.extend({
 	    //删除部门
 	    function delUser(userid){
 	    	$.ajax({
-	    		url:"UserServlet?action=DeleteUser",
+	    		url:"bumen?action=delbumen",
 	    		data:{"userid":userid},
 	    		type:"post",
 	    		success:function(data){

@@ -9,49 +9,61 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ServiceImpl.llc_ServiceImpl;
 import com.entity.Lr_bumeng;
+import com.web.AbstractServlet;
 
 
 @WebServlet("/bumen")
-public class llc_bumenServlet {
+public class llc_bumenServlet extends AbstractServlet {
+	
 	/**
-	 * ÐÂÔö²¿ÃÅ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param request
 	 * @param response
 	 * @return
 	 * @throws ServletException
 	 * @throws IOException
 	 */
-	public int addbumrn(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public int addbumen(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Lr_bumeng men = new Lr_bumeng();
 		men.setMeng_name(request.getParameter("name"));
 		men.setRenshu_id(Integer.parseInt(request.getParameter("shu")));
 		men.setUserId(Integer.parseInt(request.getParameter("userid")));
-		int isYes = 0; // ·µ»ØÐÅÏ¢
+		int isYes = 0; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 		int row = new llc_ServiceImpl().addbumen(men);
-		if (row > 0) { // ÅÐ¶ÏÓÃ»§ÊÇ·ñÔö¼Ó³É¹¦
-			// ¸ù¾ÝÓÃ»§µÇÂ¼Ãû²éÑ¯ÓÃ»§µÄÐÅÏ¢
+		if (row > 0) { // ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ó³É¹ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			isYes = 1;
 		}
 		return isYes;
 	}
 	/**
-	 * É¾³ý²¿ÃÅ
+	 * É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param request
 	 * @param response
 	 * @return
 	 * @throws ServletException
 	 * @throws IOException
 	 */
-	public int delbumrn(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public int delbumen(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int id=Integer.parseInt(request.getParameter("id"));
-		int isYes = 0; // ·µ»ØÐÅÏ¢
+		int id=Integer.parseInt(request.getParameter("userid"));
+		int isYes = 0; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 		int row = new llc_ServiceImpl().delbumen(id);
-		if (row > 0) { // ÅÐ¶ÏÓÃ»§ÊÇ·ñÔö¼Ó³É¹¦
-			// ¸ù¾ÝÓÃ»§µÇÂ¼Ãû²éÑ¯ÓÃ»§µÄÐÅÏ¢
+		if (row > 0) { // ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ó³É¹ï¿½
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			isYes = 1;
 		}
 		return isYes;
+	}
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doPost(req, resp);
+	}
+	@Override
+	public Class getServletClass() {
+		// TODO Auto-generated method stub
+		return llc_bumenServlet.class;
 	}
 }
