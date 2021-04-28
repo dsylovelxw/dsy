@@ -52,7 +52,10 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 		  async:false,
 		  type:"post",
 		  success:function(data){
-			  if(data == 0){
+			  var info = eval("("+data+")");
+			  if(info == 0){
+				  layer.msg("部门名称重复");
+				  
 				  is = true;
 			  }else{
 				  is = false;
@@ -87,9 +90,6 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 	  if(name.length<3){
 		  layer.alert("部门名称不能小于3位数")
 		  return false;
-	  } else if(renshu.length == "" || renshu.length == null){
-		  layer.alert('人数不能为空');
-		  return false;
 	  } 
 		  
 	  
@@ -101,7 +101,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 			tyep:"post",
 			success:function(data){
 				  var info = eval("("+data+")");
-				if(data !=0){
+				if(info !=0){
 					layer.msg("部门信息修改成功");
 					setTimeout(function(){
 						layer.closeAll("iframe");

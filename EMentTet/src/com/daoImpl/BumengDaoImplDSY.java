@@ -45,10 +45,10 @@ public class BumengDaoImplDSY extends BaseDao implements BumenDaoDSY {
 	@Override
 	public int UpdateLr_bumeng(Lr_bumeng bumen) {
 		// TODO Auto-generated method stub
-		String sql=" update lr_bumeng set meng_name=? ,renshu_id=?,userid=? WHERE id=?";
+		String sql=" update lr_bumeng set meng_name=?,renshu_id=?,userId=? WHERE id=?";
 		int set=0;
-		Lr_bumeng bu=new Lr_bumeng();
-		Object []parms= {bu.getMeng_name(),bu.getRenshu_id(),bu.getUserId(),bu.getId()};
+	
+		Object []parms= {bumen.getMeng_name(),bumen.getRenshu_id(),bumen.getUserId(),bumen.getId()};
 	
 		set=super.excuteUpdate(sql, parms);
                 return set;

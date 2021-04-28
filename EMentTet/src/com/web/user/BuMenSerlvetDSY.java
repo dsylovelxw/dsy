@@ -38,11 +38,11 @@ public void updateUserByAdmin(HttpServletRequest request,HttpServletResponse res
 	PrintUtil.write(cout, response);
 	
 }
-public void  hui(HttpServletRequest request,HttpServletResponse response) {
-	String uname=  request.getParameter("uname");
-	int cout=new BuMenServiceImplDSY().NameLr_bumen(uname);
-	PrintUtil.write(cout, response);
-	
+public void  allUserByUserid(HttpServletRequest request,HttpServletResponse response) {
+	String id=  request.getParameter("userid");
+ 
+	Lr_bumeng bum =new BuMenServiceImplDSY().Lr_bumengFind(Integer.valueOf(id));
+PrintUtil.write(bum, response);
 }
 
 }

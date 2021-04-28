@@ -15,7 +15,7 @@ public class llc_bumenDaoImpl extends BaseDao implements llc_bumenDao{
 
 	@Override
 	public int addbumen(Lr_bumeng men) {
-		String sql="INSERT INTO `lr_bumeng`(meng_name,renshu_id,userId) VALUES (?,?,?,?)";
+		String sql="INSERT INTO `lr_bumeng`(meng_name,renshu_id,userId) VALUES (?,?,?)";
 		Object[] parms= {men.getMeng_name(),men.getRenshu_id(),men.getUserId()};
 		return this.excuteUpdate(sql, parms);
 	}

@@ -118,126 +118,27 @@ layui.extend({
 	  //修改部门
 	    function upUser(userid){
 	    	layui.layer.open({
-	    		title : "修改用户信息",
+	    		title : "修改部门信息",
 	    		type : 2,
-	    		content : "jsp/yonghu/userInfo.jsp",
+	    		content : "jsp/bumen/userInfo.jsp",
 	    		area:['400px','540px'],
 	    		success:function(layero, index){
 	    			$.ajax({
-	    				url:"/EMentTet/UserServlet?action=allUserByUserid",
+	    				url:"/EMentTet/BuMenSerlvetDSY?action=allUserByUserid",
 	    				type:"post",
 	    				data:{"userid":userid},
 	    				success:function(data){
 	    					
 	    					var info = eval('(' + data + ')');
 	          				var body = layui.layer.getChildFrame('body', index);
-	          				body.find("#uid").val(info.id);          				
-	    					body.find("#uname2").val(info.userCode);
-	    					body.find("#uname").val(info.userCode);
-	    					body.find("#password").val(info.userPassword);
-	    					body.find("#realName").val(info.userName);
-	    					body.find("#age").val(info.age);
-	    					body.find("#phone").val(info.phone);
-	    					//性别(单选)
-	    					var sex2 = info.gender;
-	    					if(sex2 == 1){
-	    						body.find("#sex1").prop("checked",true);
-	    					}else{
-	    						body.find("#sex2").prop("checked",true);
-	    					}
-	    					 
-	    				 
+	          				body.find("#id").val(info.id);          				
+	    					body.find("#uname2").val(info.meng_name);
+	    					body.find("#uname").val(info.meng_name);
 	    					
-
-	    	    			/*------下拉框赋值--------*/
-	    					$.ajax({
-	    						  url:"/EMentTet/JueseServlet?action=allRole",
-	    						  type:"post",
-	    						  success:function(data){	
-	    							 
-	    							  var info = eval("("+data+")");
-	    							  var row = info;
-	    							 alert(row);
-	    							 var body = layui.layer.getChildFrame('body', index);
-	    							  var role = body.find("#role1");
-	    							  var html = '';
-	    	    							  $.each(row,function(index,item){
-	    	    								  html += '<option value="'+item.id+'">'+item.lodName+'</option>';
-	    	    								  
-	    	    							  })
-	    	    							  role.html(html);
-	    	    							//获取新窗口对象
-	    			                        var iframeWindow = layero.find('iframe')[0].contentWindow;
-	    			                        //重新渲染
-	    			                        iframeWindow.layui.form.render();
-	    								  }
-	    							  })
-	    							  
-	    							  	$.ajax({
-	    						  url:"/EMentTet/JueseServlet?action=allBumeng",
-	    						  type:"post",
-	    						  success:function(data){		 
-	    							  var info = eval("("+data+")");
-	    							  var row = info;
-	    							 
-	    							  var html = '';
-	    							  var body = layui.layer.getChildFrame('body', index);
-	    							  var role = body.find("#bumeng");
-	    							 
-	    	    							  $.each(row,function(index,item){
-	    	    								  html += '<option value="'+item.id+'">'+item.meng_name+'</option>';
-	    	    							  })
-	    	    							  role.html(html);
-	    	    							//获取新窗口对象
-	    			                        var iframeWindow = layero.find('iframe')[0].contentWindow;
-	    			                        //重新渲染
-	    			                        iframeWindow.layui.form.render();
-	    								  }
-	    							  })
-	    							  	$.ajax({
-	    						  url:"/EMentTet/JueseServlet?action=allZhicheng",
-	    						  type:"post",
-	    						  success:function(data){		 
-	    							  var info = eval("("+data+")");
-	    							  var row = info;
-	    							 
-	    							  var html = '';
-	    							  var body = layui.layer.getChildFrame('body', index);
-	    							  var role = body.find("#zhicheng");
-	    						 
-	    							 /* var role = body.find("#zhicheng");*/
-	    	    							  $.each(row,function(index,item){
-	    	    								  html += '<option value="'+item.id+'">'+item.zhi_name+'</option>';
-	    	    								 
-	    	    							  })
-	    	    							  role.html(html);
-	    	    							//获取新窗口对象
-	    			                        var iframeWindow = layero.find('iframe')[0].contentWindow;
-	    			                        //重新渲染
-	    			                        iframeWindow.layui.form.render();
-	    								  }
-	    							  })
-	    						  
-	    				
-	    					/*  ------下拉框赋值--------*/
-	    					//赋值后选中
-	    				/*	$.ajax({
-	    						url:"/denglu/LodeSerlvet?action=allRoleUserid",
-	    						type:"post",
-	    						data:{"userid":userid},
-	    						success:function(data){
-	    							alert(data)
-	    							var info2 = eval("("+data+")")
-	    							if(info2 == 0){
-	    								var select = 'dd[lay-value="0"]';
-	        							body.find("#role1").siblings("div.layui-form-select").find('dl').find(select).click();	//菜单样式
-	    							}else{
-	    								var select = 'dd[lay-value='+info2.data.id+']';
-	    								alert(info2.data.id)
-	        							body.find("#role1").siblings("div.layui-form-select").find('dl').find(select).click();	//菜单样式
-	    							}
-	    						}
-	    					})*/
+	    					body.find("#renshu").val(info.renshu_id);
+	    					body.find("#userid").val(info.userId);
+	    				 
+	    									
 	                        //获取新窗口对象
 	                        var iframeWindow = layero.find('iframe')[0].contentWindow;
 	                        //重新渲染
@@ -331,7 +232,7 @@ layui.extend({
 	    //删除部门
 	    function delUser(userid){
 	    	$.ajax({
-	    		url:"UserServlet?action=DeleteUser",
+	    		url:"bumen?action=delbumen",
 	    		data:{"userid":userid},
 	    		type:"post",
 	    		success:function(data){
